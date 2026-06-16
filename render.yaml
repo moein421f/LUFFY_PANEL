@@ -1,10 +1,9 @@
 services:
   - type: web
-    name: ren-gateway
-    runtime: python
-    plan: free
+    name: luffy-gateway
+    env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ADMIN_PASSWORD
         value: admin
